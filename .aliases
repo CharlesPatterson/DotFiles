@@ -1,0 +1,18 @@
+if [ -f .ssh_aliases ]; then
+  . ~/.ssh_aliases
+fi
+
+alias s='screen'
+alias sr='screen -r'
+alias lsh='ls -a | grep "^\."'
+alias iterm2='/Applications/MacPorts/iTerm2.app/Contents/MacOS/iTerm'
+alias tmux="TERM=screen-256color-bce tmux"
+
+alias cdsrc="cd ~/Shared/Source/"
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias ..6="cd ../../../../../.."
+alias ..7="cd ../../../../../../.."
