@@ -1,5 +1,9 @@
 DotFiles
 ========
 
-My .screenrc, .vimrc, .emacs, git, .zshrc, and other configurations.
-This includes my plugins for VIM and Emacs.
+Includes:
+* Aliases
+* Shell Settings
+* Screen Settings
+* Emacs plugins and Configuration
+* VIM plugins and Configuration
