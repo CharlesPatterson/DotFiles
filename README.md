@@ -5,5 +5,5 @@ Includes:
 * Aliases
 * Shell Settings
 * Screen Settings
-* Emacs plugins and Configuration
-* VIM plugins and Configuration
+* Emacs Plugins and Configuration
+* VIM Plugins and Configuration

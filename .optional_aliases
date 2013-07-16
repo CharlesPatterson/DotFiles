@@ -1,0 +1,7 @@
+# Source optional alias files
+for file in .e2open_aliases .ssh_aliases
+do
+  if [ -f file ]; then
+    source file
+  fi
+fi
