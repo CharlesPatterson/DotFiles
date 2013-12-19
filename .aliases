@@ -7,8 +7,8 @@ alias sr='screen -rd -ln on'
 alias l='ls'
 alias sl='ls'
 alias dc='cd'
+alias c='cd' 
 alias iterm2='/Applications/MacPorts/iTerm2.app/Contents/MacOS/iTerm'
-alias tmux="TERM=screen-256color-bce tmux"
 
 # Change Directory multiple levels
 alias ..="cd .."

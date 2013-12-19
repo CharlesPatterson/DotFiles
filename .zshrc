@@ -17,6 +17,9 @@ export EDITOR=vim
 # Aliases
 source $HOME/.aliases
 
+# Functions
+source $HOME/.functions
+
 # HOME Dirs
 OCTAVE_HOME=/Applications/Octave.app/Contents/Resources/bin
 JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home

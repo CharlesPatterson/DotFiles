@@ -55,3 +55,8 @@ nmap <silent> <F3> :TagbarToggle<CR>
 "let g:miniBufExplMapWindowNavArrows = 1 
 "let g:miniBufExplMapCTabSwitchBufs = 1 
 "let g:miniBufExplModSelTarget = 1
+
+"Use different indent options for file types
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
