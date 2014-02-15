@@ -7,3 +7,4 @@ Includes:
 * Screen & tmux Settings
 * Emacs Plugins and Configuration
 * VIM Plugins and Configuration
+* Git Configuration

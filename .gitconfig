@@ -1,0 +1,15 @@
+[user]
+	name = CharlesPatterson
+	email = cp@charlesmichaelpatterson.com
+[merge]
+	tool = vimdiff
+[core]
+	editor = vim
+[alias]
+	vimdiff = difftool -y -t vimdiff
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	unstage = reset HEAD --
+	last = log -1 HEAD
