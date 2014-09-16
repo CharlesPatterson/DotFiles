@@ -5,7 +5,7 @@ alias lsh='ls -a | grep "^\."'
 alias s='screen'
 alias sr='screen -rd -ln on'
 alias l='ls'
-alias sl='ls'
+#alias sl='ls'
 alias dc='cd'
 alias c='cd' 
 alias iterm2='/Applications/MacPorts/iTerm2.app/Contents/MacOS/iTerm'
@@ -25,3 +25,15 @@ if [ -f .optional_aliases ]; then
 fi
 
 alias cdsrc="cd ~/Shared/Source/"
+alias cdvf="cd /Users/cpatterson/Shared/Source/private_vodafone_ehub_upgrade/solution/project/ssp-ext/E2/e2sc/gap-data/datasets/SCCGeneric/core/reader/data.append"
+alias cdssp="cd ~/Shared/Source/ssp_10.0_rel/cpi/ssp/E2/e2sc/gap-data/datasets/SCCGeneric/core/reader/data"
+alias cookbooks="cd ~/Shared/Source/chef-repo/cookbooks"
+
+# Ruby Aliases
+alias kdc="kitchen destroy && kitchen converge default"
+alias kc="kitchen converge default"
+alias kl="kitchen login default"
+alias kd="kitchen destroy default"
+
+# fasd Aliases
+alias v='f -e vim'

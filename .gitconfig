@@ -13,3 +13,5 @@
 	co = checkout
 	unstage = reset HEAD --
 	last = log -1 HEAD
+[push]
+	default = simple

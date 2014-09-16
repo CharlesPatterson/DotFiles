@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("90 Day Plan"
+ (filename . "~/Desktop/90 Day Plan")
+ (front-context-string . "90 Day Plan\n\nVis")
+ (rear-context-string)
+ (position . 1))
+("60 Day Plan"
+ (filename . "~/Desktop/60 Day Plan")
+ (front-context-string . "60 Day Plan\n\nVis")
+ (rear-context-string)
+ (position . 1))
+("30 Day Plan"
+ (filename . "~/Desktop/30 Day Plan")
+ (front-context-string . "30 Day Plan\n\nVis")
+ (rear-context-string)
+ (position . 1))
+("Values"
+ (filename . "~/Desktop/my_values.org")
+ (front-context-string)
+ (rear-context-string . "for individuals\n")
+ (position . 58))
+)
