@@ -19,7 +19,7 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
-set paste
+"set paste
 set ignorecase smartcase
 set cursorline
 set t_ti= t_te=
@@ -42,6 +42,12 @@ syntax on
 "Map Leader key to ' ' 
 let mapleader = "\<Space>"
 
+"Add persistent undo-file
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugin Specific Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,7 +63,7 @@ set runtimepath^=~/.vim/bundle/ctrlp/ctrlp.vim
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Custom Autocmds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -94,3 +100,8 @@ nnoremap <Leader>' i''<ESC>
 nnoremap <Leader>" i""<ESC>
 nnoremap <Leader>( i()<ESC>
 nnoremap <Leader>{ i{}<ESC>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Miscellaneous Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ragtag_global_maps = 1
