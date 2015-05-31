@@ -45,7 +45,7 @@ brews=(
   coreutils
   findutils
   fasd
-  rsync
+  #rsync
   trash
   tree
   wget
@@ -83,6 +83,7 @@ apps=(
   skype
   utorrent
   dash
+  eclipse-ide
   mou
   qlcolorcode
   qlmarkdown
