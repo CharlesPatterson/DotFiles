@@ -1,13 +1,62 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="blinks"
+#ZSH_THEME="robbyrussell"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git svn)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+
 # Use fasd
-eval "$(/opt/local/bin/fasd --init auto)"
+eval "$(/usr/local/bin/fasd --init auto)"
 
 # Use Emacs mode
 bindkey -e
 bindkey "^[[3~" delete-char
 
 # Prompt
-export PROMPT="%n@%m:%d
-=> "
+#export PROMPT="%n@%m:%d
+#=> "
 #export PS1='[\u@${HOSTNAME}:\[\033[33m\w\033[0m\]]\n${PROMPT} '
 #export PS1="[\u@${HOSTNAME}:\[\033[33m\w\033[0m\]]\n${PROMPT} "
 
@@ -16,19 +65,16 @@ export EDITOR=vim
 
 # Aliases
 source $HOME/.aliases
+source $HOME/.ssh_aliases
 
 # Functions
 source $HOME/.functions
 
 # HOME Dirs
-OCTAVE_HOME=/Applications/Octave.app/Contents/Resources/bin
-JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-MACPORTS_HOME=/opt/local/bin/
-GRADLE_HOME=/opt/local/share/java/gradle
-SCALA_HOME=/opt/local/share/scala-2.10/bin
-HASKELL_HOME=$HOME/Library/Haskell/bin
+MAVEN_HOME=/Users/cpatterson/Shared/maven/apache-maven-3.0.4/bin
+#JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/
 GROOVY_HOME=$HOME/Software/groovy-1.8.6
-RVM_SCRIPTS_HOME=$HOME/.rvm/scripts/bin/
 GIT_HOME=/Applications/Xcode.app/Contents/Developer/usr/libexec/git-core/
 XCODE_HOME=/Applications/Xcode.app/Contents/Developer/usr/bin/
 HOME_BIN=$HOME/bin/
@@ -36,18 +82,15 @@ HOME_BIN=$HOME/bin/
 # Create PATH
 export PATH="/opt/local/bin:$PATH"
 export PATH="/opt/local/sbin:$PATH"
-export PATH="$OCTAVE_HOME:$PATH"
+export PATH="$MAVEN_HOME:$PATH"
 export PATH="$GROOVY_HOME/bin/:$PATH"
 export PATH="$GIT_HOME:$PATH"
-export PATH="$MACPORTS_HOME:$PATH"
 export PATH="$XCODE_HOME:$PATH"
-export PATH="$HASKELL_HOME:$PATH"
-export PATH="$SCALA_HOME:$PATH"
-export PATH="$RVM_SCRIPTS_HOME:$PATH"
 export PATH="$HOME_BIN:$PATH"
 export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PYTHONPATH="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:${PYTHONPATH}"
+PYTHONPATH="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/:$PYTHONPATH"
+export PYTHONPATH
 
 ##### ZSH-Specific Features #####
 
@@ -74,3 +117,22 @@ HISTSIZE=SAVEHIST=10000
 setopt incappendhistory 
 setopt sharehistory
 setopt extendedhistory
+
+# Use auto-renaming to hostnames for tmux
+case "$TERM" in
+    screen*)
+        PROMPT_COMMAND="printf '\033k$(hostname)\033\\';"${PROMPT_COMMAND}
+        ;;
+esac
+
+# Maven needs substantial memory to compile projects
+export MAVEN_OPTS=-Xmx512m
+
+# Include autojump functionality
+export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
+if [ -f /opt/local/etc/profile.d/autojump.zsh ]; then
+    . /opt/local/etc/profile.d/autojump.zsh
+fi
+
+# Include fasd functionality
+eval "$(fasd --init auto)"
