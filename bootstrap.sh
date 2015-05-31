@@ -89,6 +89,7 @@ apps=(
   qlmarkdown
   qlstephen
   quicklook-json
+  chromecast
   flash
   vlc
   spotify
