@@ -101,7 +101,11 @@ nnoremap <Leader>" i""<ESC>
 nnoremap <Leader>( i()<ESC>
 nnoremap <Leader>{ i{}<ESC>
 
+" Allow me to save to a file with sudo if needed
+cmap w!! w !sudo tee % >/dev/null
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Miscellaneous Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ragtag_global_maps = 1
+let g:NERDTreeWinSize = 60 

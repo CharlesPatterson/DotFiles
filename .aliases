@@ -9,6 +9,7 @@ alias l='ls'
 alias dc='cd'
 alias c='cd' 
 alias iterm2='/Applications/MacPorts/iTerm2.app/Contents/MacOS/iTerm'
+alias cdrive="cd ~/Documents/Parallels/Windows\ 7.pvm/Windows\ Disks/C"
 
 # Change Directory multiple levels
 alias ..="cd .."
