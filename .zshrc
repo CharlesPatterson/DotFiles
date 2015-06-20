@@ -65,10 +65,6 @@ export EDITOR=vim
 
 # Aliases
 source $HOME/.aliases
-source $HOME/.ssh_aliases
-
-# Functions
-source $HOME/.functions
 
 # HOME Dirs
 MAVEN_HOME=/Users/cpatterson/Shared/maven/apache-maven-3.0.4/bin
