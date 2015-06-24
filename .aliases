@@ -25,16 +25,5 @@ if [ -f .optional_aliases ]; then
   . .optional_aliases
 fi
 
-alias cdsrc="cd ~/Shared/Source/"
-alias cdvf="cd /Users/cpatterson/Shared/Source/private_vodafone_ehub_upgrade/solution/project/ssp-ext/E2/e2sc/gap-data/datasets/SCCGeneric/core/reader/data.append"
-alias cdssp="cd ~/Shared/Source/ssp_10.0_rel/cpi/ssp/E2/e2sc/gap-data/datasets/SCCGeneric/core/reader/data"
-alias cookbooks="cd ~/Shared/Source/chef-repo/cookbooks"
-
-# Ruby Aliases
-alias kdc="kitchen destroy && kitchen converge default"
-alias kc="kitchen converge default"
-alias kl="kitchen login default"
-alias kd="kitchen destroy default"
-
 # fasd Aliases
 alias v='f -e vim'

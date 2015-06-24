@@ -8,6 +8,7 @@
 # TODO: Pull down dotfiles
 # TODO: Install Cisco VPN
 # TODO: Download specific dash docs
+# TODO: Create symlinks for configuration files
 
 # Install Apple Updates
 softwareupdate --install --all
