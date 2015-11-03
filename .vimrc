@@ -1,11 +1,33 @@
 " based on Gary Gernhardt's excellent .vimrc (https://github.com/garybernhardt/dotfiles/blob/master/.vimrc)
 
-execute pathogen#infect()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vundle configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'majutsushi/tagbar.git'
+Plugin 'SirVer/ultisnips.git'
+Plugin 'tpope/vim-abolish.git'
+Plugin 'kchmck/vim-coffee-script.git'
+Plugin 'honza/vim-snippets.git'
+Plugin 'tpope/vim-surround.git'
+
+call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ VIM Core configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" execute pathogen#infect()
 set nowrap
 set nocompatible
 set hidden
@@ -109,3 +131,17 @@ cmap w!! w !sudo tee % >/dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ragtag_global_maps = 1
 let g:NERDTreeWinSize = 60 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Snippets Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir        = '~/.vim/my-snippets/'
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'my-snippets']
