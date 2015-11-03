@@ -111,3 +111,6 @@ brew cask alfred link
 
 # Remove cached downloads
 brew cleanup
+
+# Install vim plugins
+vim +PluginInstall +qall
