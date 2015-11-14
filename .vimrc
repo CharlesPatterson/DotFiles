@@ -16,10 +16,19 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'majutsushi/tagbar.git'
 Plugin 'SirVer/ultisnips.git'
-Plugin 'tpope/vim-abolish.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'honza/vim-snippets.git'
+Plugin 'tpope/vim-abolish.git'
+Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-speeddating.git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'bling/vim-airline.git'
+Plugin 'godlygeek/tabular.git'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'svermeulen/vim-easyclip.git'
+"Plugin 'airblade/vim-gitgutter.git'
+Plugin 'sjl/gundo.vim.git'
 
 call vundle#end()            " required
 
@@ -75,7 +84,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Ctrl-P Bindings
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 
 "Enable Ctrl-P (Fuzzy File-Finder)
@@ -145,3 +154,24 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir        = '~/.vim/my-snippets/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'my-snippets']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Airline Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'serene'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" EasyClip Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyClipShareYanks = 1
+let g:EasyClipUsePasteToggleDefaults = 0
+let g:EasyClipEnableBlackHoleRedirect = 0
+
+nmap <C-P> <plug>EasyClipSwapPasteForward
+nmap <C-N> <plug>EasyClipSwapPasteBackwards
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Gundo Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F5> :GundoToggle<CR>
