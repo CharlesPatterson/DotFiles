@@ -11,6 +11,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
 "Plugin 'airblade/vim-gitgutter.git'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'SirVer/ultisnips.git'
@@ -32,7 +33,6 @@ Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-speeddating.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-unimpaired.git'
-
 call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
