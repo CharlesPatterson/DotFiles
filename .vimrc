@@ -11,12 +11,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
 "Plugin 'airblade/vim-gitgutter.git'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'SirVer/ultisnips.git'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline.git'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab.git'
 Plugin 'godlygeek/tabular.git'
 Plugin 'honza/vim-snippets.git'
 Plugin 'kchmck/vim-coffee-script.git'
