@@ -86,4 +86,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
-export JIRA_URL=https://clearn.atlassian.net
+# Allow use of k
+#source ~/.oh-my-zsh/plugins/k/k.sh
+
+# Specify preferred editor
+export EDITOR='vim'
