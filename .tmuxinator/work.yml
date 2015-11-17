@@ -28,9 +28,9 @@ root: ~/
 # post: tmux -CC attach -t work
 
 windows:
-  - strategic-plan: cd ~/DailyLog/; emacs WorkDone2015.org
-  - daily-log: cd ~/DailyLog/; emacs "$(date +"%m-%d-%Y").org"
-  - source: cd ~/source/dwh/
+  - strategic-plan: cd ~/DailyLog/; clear; emacs WorkDone2015.org
+  - daily-log: cd ~/DailyLog/; clear; emacs "$(date +"%m-%d-%Y").org"
+  - source: cd ~/source/dwh/; clear;
   - build: cd ~/source/dwh/; mvn clean install
-  - deploy: cd ~/source/dwh/
-  - logs: cd /var/log/webappdata/; ls
+  - deploy: cd ~/source/dwh/; clear;
+  - logs: cd /var/log/webappdata/; clear; ls
