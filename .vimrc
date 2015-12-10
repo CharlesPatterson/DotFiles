@@ -18,7 +18,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline.git'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab.git'
+Plugin 'gioele/vim-autoswap.git'
+Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'godlygeek/tabular.git'
+Plugin 'haya14busa/incsearch.vim'
 Plugin 'honza/vim-snippets.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'kien/ctrlp.vim'
@@ -71,12 +74,13 @@ set autoread
 set timeout timeoutlen=1000 ttimeoutlen=100
 filetype plugin indent on
 syntax on
+colorscheme solarized
 
 "Change menu color to something nicer looking
 :highlight Pmenu ctermbg=blue
 
 "Map Leader key to ' ' 
-let mapleader = "\<Space>"
+let mapleader = ","
 
 "Add persistent undo-file
 set undodir=~/.vim/undodir
@@ -170,7 +174,7 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'my-snippets']
 """ Airline Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'serene'
+let g:airline_theme = 'solarized'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ EasyClip Settings
@@ -212,3 +216,44 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" IncSearch Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Main functionality
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" Automatic :nohlsearch
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" Be able to tab through search results
+map <Tab> <Over>(incsearch-next)
+map <S-Tab> <Over>(incsearch-prev)
+
+" Scroll-like feature while incremental searching
+map <C-j> <Over>(incsearch-scroll-f)
+map <C-k> <Over>(incsearch-scroll-b)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Learn VIM the Hard Way Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Edit .vimrc in a vertical split
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" GUI Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Monaco:h18
+let macvim_skip_colorscheme=1
