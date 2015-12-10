@@ -114,16 +114,24 @@ nmap <silent> <F3> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Default autoindent for various web languages
-autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+augroup autoindent_group
+    autocmd!
+    autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+augroup END
 
 " Don't syntax highlight markdown because it's often wrong
-autocmd! FileType mkd setlocal syn=off
+augroup markdown_syntax_group
+    autocmd! FileType mkd setlocal syn=off
+augroup END
 
 " Jump to last cursor position from opening file
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+augroup last_cursor_position_group
+    autocmd!
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
+augroup END
 
 " Autocomplete for ruby
 let g:rubycomplete_buffer_loading = 1
