@@ -12,7 +12,8 @@
     )
 
 ;; Use junio theme from sublime-themes package
-(load-theme 'junio t)
+;;(load-theme 'junio t)
+(load-theme 'solarized t)
 
 ;; Disable deleting my git repo, I guess Magit magic
 (setq magit-auto-revert-mode nil)
@@ -89,3 +90,6 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; Enable column mode by default (useful for Git commit message editing)
+(setq column-number-mode t)
