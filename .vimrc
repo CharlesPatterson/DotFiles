@@ -1,7 +1,4 @@
-" based on Gary Gernhardt's excellent .vimrc (https://github.com/garybernhardt/dotfiles/blob/master/.vimrc)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Vundle configuration
+" Vundle configuration {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
@@ -39,9 +36,9 @@ Plugin 'tpope/vim-speeddating.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-unimpaired.git'
 call vundle#end()            " required
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" VIM Core configurations
+" VIM Core configurations {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " execute pathogen#infect()
@@ -88,8 +85,9 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Plugin Specific Configuration
+" }}}
+
+" Plugin Specific Configuration {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Ctrl-P Bindings
@@ -109,8 +107,9 @@ let g:ctrlp_custom_ignore = {
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TagbarToggle<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Custom Autocmds
+" }}}
+
+" Custom Autocmds {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Default autoindent for various web languages
@@ -137,8 +136,9 @@ augroup END
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Miscellaneous Key Maps
+"}}}
+
+" Miscellaneous Key Maps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Map <C-L> to turning off search highlighting
@@ -158,15 +158,16 @@ nnoremap <Leader>{ i{}<ESC>
 " Allow me to save to a file with sudo if needed
 cmap w!! w !sudo tee % >/dev/null
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Miscellaneous Plugin Settings
+" }}}
+
+" Miscellaneous Plugin Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ragtag_global_maps = 1
 let g:NERDTreeWinSize = 60 
 
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Snippets Plugin Settings
+" Snippets Plugin Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -178,14 +179,16 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir        = '~/.vim/my-snippets/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'my-snippets']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Airline Settings
+" }}}
+
+" Airline Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'solarized'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" EasyClip Settings
+" }}}
+
+" EasyClip Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EasyClipShareYanks = 1
 let g:EasyClipUsePasteToggleDefaults = 0
@@ -194,13 +197,15 @@ let g:EasyClipEnableBlackHoleRedirect = 0
 nmap <C-P> <plug>EasyClipSwapPasteForward
 nmap <C-N> <plug>EasyClipSwapPasteBackwards
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Gundo Settings
+" }}}
+
+" Gundo Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :GundoToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Better Rainbow Parentheses Settings
+" }}}
+
+" Better Rainbow Parentheses Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -225,8 +230,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" IncSearch Settings
+" }}}
+
+" IncSearch Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Main functionality
 map /  <Plug>(incsearch-forward)
@@ -252,16 +258,19 @@ map <S-Tab> <Over>(incsearch-prev)
 map <C-j> <Over>(incsearch-scroll-f)
 map <C-k> <Over>(incsearch-scroll-b)
 
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Learn VIM the Hard Way Settings
+" Learn VIM the Hard Way Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Edit .vimrc in a vertical split
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" GUI Settings
+" }}}
+
+" GUI Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Monaco:h18
 let macvim_skip_colorscheme=1
+
+" }}}
