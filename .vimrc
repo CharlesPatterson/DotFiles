@@ -272,5 +272,16 @@ map <C-k> <Over>(incsearch-scroll-b)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Monaco:h18
 let macvim_skip_colorscheme=1
+set background=dark
+colorscheme solarized
+
+" }}}
+
+" Fold Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 " }}}
