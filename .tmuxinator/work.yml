@@ -29,8 +29,12 @@ root: ~/
 
 windows:
   - strategic-plan: cd ~/DailyLog/; clear; emacs WorkDone2015.org
-  - daily-log: cd ~/DailyLog/; clear; emacs "$(date +"%m-%d-%Y").org"
+  - daily-log: cd ~/DailyLog/ ; clear; emacs "$(date +"%m-%d-%Y").org"
+  - inbox: cd ~/DailyLog/; clear; emacs Inbox.org
+  - git: cd ~/source/dwh/; clear; emacs
   - source: cd ~/source/dwh/; clear;
-  - build: cd ~/source/dwh/; mvn clean install
+  - build: cd ~/source/dwh/; clear; mvn clean install
   - deploy: cd ~/source/dwh/; clear;
+  - tomcats: cd /opt/; clear; ls
   - logs: cd /var/log/webappdata/; clear; ls
+  - database: psql -d clxlietlcourse
