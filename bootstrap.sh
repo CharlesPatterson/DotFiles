@@ -114,3 +114,4 @@ brew cleanup
 
 # Install vim plugins
 vim +PluginInstall +qall
+mkdir -p ~/.vim/undodir/
