@@ -43,6 +43,7 @@ brews=(
   erlang
   # Misc Tools
   ack
+  antlr
   coreutils
   findutils
   fasd
