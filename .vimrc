@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'SirVer/ultisnips.git'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'bling/vim-airline.git'
 Plugin 'blinks/vim-antlr.git'
 Plugin 'davidhalter/jedi-vim'
@@ -43,6 +44,7 @@ call vundle#end()            " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " execute pathogen#infect()
+set backspace=2
 set nowrap
 set nocompatible
 set hidden
@@ -285,4 +287,12 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" }}}
+
+" javacomplete2 Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup javacomplete2
+    autocmd!
+    autocmd FileType java set omnifunc=javacomplete#Complete
+augroup END
 " }}}
