@@ -9,6 +9,7 @@
 # TODO: Install Cisco VPN
 # TODO: Download specific dash docs
 # TODO: Create symlinks for configuration files
+# TODO: Add yasnippets from work
 
 # Install Apple Updates
 softwareupdate --install --all
@@ -116,3 +117,6 @@ brew cleanup
 # Install vim plugins
 vim +PluginInstall +qall
 mkdir -p ~/.vim/undodir/
+
+# Enable emacs to start as a daemon by adding it to the launchagents
+sudo cp gnu.emacs.daemon.plist /Library/LaunchAgents/
