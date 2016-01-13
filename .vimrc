@@ -26,6 +26,7 @@ Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar.git'
+Plugin 'moll/vim-node'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'sjl/gundo.vim.git'
 Plugin 'svermeulen/vim-easyclip.git'
@@ -44,6 +45,7 @@ call vundle#end()            " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " execute pathogen#infect()
+set number
 set backspace=2
 set nowrap
 set nocompatible
