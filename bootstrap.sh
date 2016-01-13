@@ -61,6 +61,9 @@ brews=(
   vim
   # External Tools
   awsebcli
+  # DevOps
+  docker
+  boot2docker
 )
 
 echo "Installing brews..."
