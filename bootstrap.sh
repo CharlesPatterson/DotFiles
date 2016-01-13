@@ -59,6 +59,8 @@ brews=(
   # Editors
   emacs
   vim
+  # External Tools
+  awsebcli
 )
 
 echo "Installing brews..."
