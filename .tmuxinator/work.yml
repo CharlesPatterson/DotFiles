@@ -28,10 +28,10 @@ root: ~/
 # post: tmux -CC attach -t work
 
 windows:
-  - strategic-plan: cd ~/DailyLog/; clear; emacs WorkDone2015.org
-  - daily-log: cd ~/DailyLog/ ; clear; emacs "$(date +"%m-%d-%Y").org"
-  - inbox: cd ~/DailyLog/; clear; emacs Inbox.org
-  - git: cd ~/source/dwh/; clear; emacs
+  - strategic-plan: cd ~/Dropbox/DailyLog/; clear; emacsclient -c WorkDone2015.org
+  - daily-log: cd ~/Dropbox/DailyLog/ ; clear; emacsclient -c "$(date +"%m-%d-%Y").org"
+  - inbox: cd ~/Dropbox/DailyLog/; clear; emacsclient -c Inbox.org
+  - git: cd ~/source/dwh/; clear; emacsclient -c --eval '(magit-status "~/source/dwh/")'
   - source: cd ~/source/dwh/; clear;
   - build: cd ~/source/dwh/; clear; mvn clean install
   - deploy: cd ~/source/dwh/; clear;
