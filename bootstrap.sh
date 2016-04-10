@@ -57,6 +57,7 @@ brews=(
   # Editors
   emacs
   vim
+  neovim
 )
 
 echo "Installing brews..."
@@ -113,5 +114,12 @@ brew cask alfred link
 brew cleanup
 
 # Install vim plugins
-vim +PluginInstall +qall
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install vim plugins
+vim +PlugInstall +qall
+nvim +PlugInstall +qall
 mkdir -p ~/.vim/undodir/

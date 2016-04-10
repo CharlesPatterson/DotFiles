@@ -1,47 +1,42 @@
-" Vundle configuration {{{
+" Plugins {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible
-filetype off
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'Lokaltog/vim-easymotion'
+Plug 'SirVer/ultisnips'
+Plug 'altercation/vim-colors-solarized'
+Plug 'benekastah/neomake'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'ervandew/supertab'
+Plug 'gioele/vim-autoswap'
+Plug 'godlygeek/tabular'
+Plug 'haya14busa/incsearch.vim'
+Plug 'honza/vim-snippets'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'sjl/gundo.vim'
+Plug 'svermeulen/vim-easyclip'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-"Plugin 'airblade/vim-gitgutter.git'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'SirVer/ultisnips.git'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'bling/vim-airline.git'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab.git'
-Plugin 'gioele/vim-autoswap.git'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'godlygeek/tabular.git'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'honza/vim-snippets.git'
-Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'sjl/gundo.vim.git'
-Plugin 'svermeulen/vim-easyclip.git'
-Plugin 'tpope/vim-abolish.git'
-Plugin 'tpope/vim-commentary.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'tpope/vim-jdaddy.git'
-Plugin 'tpope/vim-repeat.git'
-Plugin 'tpope/vim-speeddating.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-unimpaired.git'
-call vundle#end()            " required
+call plug#end()
 " }}}
 
 " VIM Core configurations {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" execute pathogen#infect()
 set nowrap
 set nocompatible
 set hidden
