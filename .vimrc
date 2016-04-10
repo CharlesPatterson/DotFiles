@@ -37,6 +37,8 @@ call plug#end()
 " VIM Core configurations {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set number
+set backspace=2
 set nowrap
 set nocompatible
 set hidden
@@ -279,4 +281,12 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" }}}
+
+" javacomplete2 Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup javacomplete2
+    autocmd!
+    autocmd FileType java set omnifunc=javacomplete#Complete
+augroup END
 " }}}

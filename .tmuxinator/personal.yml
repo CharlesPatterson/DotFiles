@@ -28,6 +28,6 @@ root: ~/
 # post: tmux -CC attach -t personal
 
 windows:
-  - strategic-plan: cd ~/Documents/DailyLog/; emacs plan.org
-  - daily-log: cd ~/Documents/DailyLog/; emacs "$(date +"%m-%d-%Y").org"
-  - source: cd ~/source/
+  - strategic-plan: cd ~/Dropbox/DailyLog/; clear; emacsclient -c plan.org
+  - daily-log: cd ~/Dropbox/DailyLog/; clear; emacsclient -c "$(date +"%m-%d-%Y").org"
+  - source: cd ~/source/; clear;
