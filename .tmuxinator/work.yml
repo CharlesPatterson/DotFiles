@@ -28,11 +28,12 @@ root: ~/
 # post: tmux -CC attach -t work
 
 windows:
-  - strategic-plan: cd ~/Dropbox/DailyLog/; clear; emacsclient -c WorkDone2015.org
-  - daily-log: cd ~/Dropbox/DailyLog/ ; clear; emacsclient -c "$(date +"%m-%d-%Y").org"
+  - work-log: cd ~/Dropbox/DailyLog/; clear; emacsclient -c WorkLog.org
+  - strategic-plan: cd ~/Dropbox/DailyLog/; clear; emacsclient -c StrategicPlan.org
+  - daily-plan: cd ~/Dropbox/DailyLog/ ; clear; emacsclient -c "$(date +"%m-%d-%Y").org"
   - inbox: cd ~/Dropbox/DailyLog/; clear; emacsclient -c Inbox.org
   - git: cd ~/source/dwh/; clear; emacsclient -c --eval '(magit-status "~/source/dwh/")'
   - source: cd ~/source/dwh/; clear;
-  - build: cd ~/source/dwh/; clear; mvn clean install
-  - deploy: cd ~/source/dwh/Docker; ~/source/dwh/Docker/build_docker_image.sh; ~/source/dwh/Docker/start_docker_container.sh;
-  - remote-aws: cldwh-remote
+  - build: cd ~/source/dwh/; clear; 
+  - deploy: cd ~/source/dwh/; clear;
+  - remote: cd ~/source/dwh/; clear;
