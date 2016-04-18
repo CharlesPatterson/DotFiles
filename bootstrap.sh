@@ -61,8 +61,8 @@ brews=(
   vim
   neovim
   # External Tools
+  awscli
   awsebcli
-  # DevOps
   docker
   boot2docker
 )
@@ -107,6 +107,8 @@ apps=(
   vagrant
   arq
   nvalt
+  dockertoolbox
+  visualvm
 )
 
 # Install apps to /Applications
@@ -132,4 +134,6 @@ nvim +PlugInstall +qall
 mkdir -p ~/.vim/undodir/
 
 # Enable emacs to start as a daemon by adding it to the launchagents
+# You can manually run this with:
+# sudo launchctl load -w /Library/LaunchAgents/gnu.emacs.daemon.plist
 sudo cp gnu.emacs.daemon.plist /Library/LaunchAgents/

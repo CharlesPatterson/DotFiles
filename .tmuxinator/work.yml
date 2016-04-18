@@ -34,7 +34,5 @@ windows:
   - git: cd ~/source/dwh/; clear; emacsclient -c --eval '(magit-status "~/source/dwh/")'
   - source: cd ~/source/dwh/; clear;
   - build: cd ~/source/dwh/; clear; mvn clean install
-  - deploy: cd ~/source/dwh/; clear;
-  - tomcats: cd /opt/; clear; ls
-  - logs: cd /var/log/webappdata/; clear; ls
-  - database: psql -d clxlietlcourse
+  - deploy: cd ~/source/dwh/Docker; ~/source/dwh/Docker/build_docker_image.sh; ~/source/dwh/Docker/start_docker_container.sh;
+  - remote-aws: cldwh-remote
