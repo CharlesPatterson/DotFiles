@@ -137,3 +137,8 @@ mkdir -p ~/.vim/undodir/
 # You can manually run this with:
 # sudo launchctl load -w /Library/LaunchAgents/gnu.emacs.daemon.plist
 sudo cp gnu.emacs.daemon.plist /Library/LaunchAgents/
+
+# Enable docker to start as a daemon by adding it to the launchagents
+# You can manually run this with:
+# sudo launchctl load -w /Library/LaunchAgents/com.docker.machine.default.plist
+sudo cp com.docker.machine.default.plist /Library/LaunchAgents/
