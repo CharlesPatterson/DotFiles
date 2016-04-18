@@ -11,3 +11,6 @@ fi
 
 # fasd Aliases
 alias v='f -e vim'
+
+# tmuxinator profile
+alias personal='tmuxinator start personal'
