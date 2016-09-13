@@ -17,6 +17,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
+Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sjl/gundo.vim'
 Plug 'svermeulen/vim-easyclip'
@@ -289,4 +290,9 @@ augroup javacomplete2
     autocmd!
     autocmd FileType java set omnifunc=javacomplete#Complete
 augroup END
+" }}}
+
+" Javascript Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }}}
