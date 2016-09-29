@@ -109,6 +109,7 @@ apps=(
   nvalt
   dockertoolbox
   visualvm
+  sublime-text
 )
 
 # Install apps to /Applications
