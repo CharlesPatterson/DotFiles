@@ -14,3 +14,6 @@ alias v='f -e vim'
 
 # tmuxinator profile
 alias personal='tmuxinator start personal'
+
+# Git aliases
+alias gst='git status --short --branch'

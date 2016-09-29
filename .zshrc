@@ -91,3 +91,11 @@ bindkey '^S' history-incremental-pattern-search-forward
 
 # Specify preferred editor
 export EDITOR='vim'
+
+export TERM='xterm-256color'
+export CLASSPATH="/usr/local/Cellar/antlr/4.5.1_1/antlr-4.5.1-complete.jar:."
+
+# Transpose correctly
+autoload -Uz transpose-words-match
+zstyle ':zle:transpose-words' word-style shell
+zle -N transpose-words transpose-words-match
