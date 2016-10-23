@@ -107,6 +107,7 @@ apps=(
   vagrant
   arq
   nvalt
+  sublime-text
 )
 
 # Install apps to /Applications
