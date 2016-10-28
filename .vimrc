@@ -1,41 +1,71 @@
+"Reminder on Folds
+"zR to open all folds
+"zM to close all folds
+"zo to open specific fold
+"zc to close specific fold
+" Fold Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
+
 " Plugins {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin()
 
-Plug 'Lokaltog/vim-easymotion'
-Plug 'SirVer/ultisnips'
+"Look-and-feel
 Plug 'altercation/vim-colors-solarized'
-Plug 'benekastah/neomake'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'ervandew/supertab'
-"Plug 'gioele/vim-autoswap'
-Plug 'CharlesPatterson/vim-autoswap'
-Plug 'godlygeek/tabular'
-Plug 'haya14busa/incsearch.vim'
-Plug 'honza/vim-snippets'
-Plug 'kchmck/vim-coffee-script'
-Plug 'kien/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"Navigation
+Plug 'haya14busa/incsearch.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'sjl/gundo.vim'
-Plug 'svermeulen/vim-easyclip'
+"Plug 'gioele/vim-autoswap'
+Plug 'CharlesPatterson/vim-autoswap' 
+Plug 'Lokaltog/vim-easymotion'
+
+"Code Completion/Generation
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+
+"Code Editing
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+
+"Miscellaneous
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+"Python-specific
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+"Javascript-specific
+Plug 'kchmck/vim-coffee-script'
+Plug 'moll/vim-node'
+
+"Potential, but not integrated yet 
+Plug 'benekastah/neomake'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sjl/gundo.vim'
+Plug 'svermeulen/vim-easyclip'
 
 call plug#end()
 " }}}
 
-" VIM Core configurations {{{
+" Core Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set number
@@ -53,7 +83,7 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
-"set paste
+set paste
 set ignorecase smartcase
 set cursorline
 set t_ti= t_te=
@@ -68,11 +98,6 @@ set completeopt+=longest
 set autoread
 set timeout timeoutlen=1000 ttimeoutlen=100
 filetype plugin indent on
-syntax on
-colorscheme solarized
-
-"Change menu color to something nicer looking
-:highlight Pmenu ctermbg=blue
 
 "Map Leader key to ' ' 
 let mapleader = ","
@@ -85,29 +110,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " }}}
 
-" Plugin Specific Configuration {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"Ctrl-P Bindings
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-
-"Enable Ctrl-P (Fuzzy File-Finder)
-set runtimepath^=~/.vim/bundle/ctrlp/ctrlp.vim
-
-" Sane Ignore For Ctrl-P
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
-  \ 'file': '\.exe$\|\.so$\|\.dat$'
-  \ }
-
-"Map NERDTree and Tagbar to function toggle switches
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :TagbarToggle<CR>
-
-" }}}
-
-" Custom Autocmds {{{
+" Autocmds {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Default autoindent for various web languages
@@ -130,13 +133,9 @@ augroup last_cursor_position_group
         \ endif
 augroup END
 
-" Autocomplete for ruby
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-
 "}}}
 
-" Miscellaneous Key Maps {{{
+" Key Mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Map <C-L> to turning off search highlighting
@@ -156,55 +155,36 @@ nnoremap <Leader>{ i{}<ESC>
 " Allow me to save to a file with sudo if needed
 cmap w!! w !sudo tee % >/dev/null
 
-" }}}
+" Edit .vimrc in a vertical split
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Miscellaneous Plugin Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ragtag_global_maps = 1
-let g:NERDTreeWinSize = 60 
-
-" }}}
-
-" Snippets Plugin Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir        = '~/.vim/my-snippets/'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'my-snippets']
-
-" }}}
-
-" Airline Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'solarized'
-
-" }}}
-
-" EasyClip Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EasyClipShareYanks = 1
-let g:EasyClipUsePasteToggleDefaults = 0
-let g:EasyClipEnableBlackHoleRedirect = 0
-
-nmap <C-P> <plug>EasyClipSwapPasteForward
-nmap <C-N> <plug>EasyClipSwapPasteBackwards
-
-" }}}
-
-" Gundo Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Map NERDTree and Tagbar to function toggle switches
+nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <F3> :TagbarToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 
 " }}}
 
-" Better Rainbow Parentheses Settings {{{
+" Look-and-Feel Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Monaco:h18
+let macvim_skip_colorscheme=1
+set background=dark
+colorscheme solarized
+syntax on
+
+"Change menu color to something nicer looking
+:highlight Pmenu ctermbg=blue
+
+"Airline Settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme                      = 'solarized'
+
+"NerdTree Settings
+let g:NERDTreeWinSize    = 60
+
+" Better Rainbow Parentheses Settings 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -227,6 +207,38 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" }}}
+
+" Plugin Specific Configuration {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Ctrl-P Bindings
+let g:ctrlp_map = '<Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+
+"Enable Ctrl-P (Fuzzy File-Finder)
+set runtimepath^=~/.vim/bundle/ctrlp/ctrlp.vim
+
+" Sane Ignore For Ctrl-P
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
+" }}}
+
+" Snippets Plugin Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger                       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger                  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger                 = "<S-Tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit                           = "vertical"
+let g:UltiSnipsSnippetsDir                         = '~/.vim/my-snippets/'
+let g:UltiSnipsSnippetDirectories                  = ['UltiSnips', 'my-snippets']
 
 " }}}
 
@@ -256,38 +268,4 @@ map <S-Tab> <Over>(incsearch-prev)
 map <C-j> <Over>(incsearch-scroll-f)
 map <C-k> <Over>(incsearch-scroll-b)
 
-" }}}
-
-" Learn VIM the Hard Way Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Edit .vimrc in a vertical split
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" }}}
-
-" GUI Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Monaco:h18
-let macvim_skip_colorscheme=1
-set background=dark
-colorscheme solarized
-
-" }}}
-
-" Fold Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" }}}
-
-" javacomplete2 Settings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup javacomplete2
-    autocmd!
-    autocmd FileType java set omnifunc=javacomplete#Complete
-augroup END
 " }}}
