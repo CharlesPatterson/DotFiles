@@ -18,6 +18,7 @@ augroup END
 call plug#begin()
 
 "Look-and-feel
+Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-airline/vim-airline'
@@ -159,9 +160,9 @@ cmap w!! w !sudo tee % >/dev/null
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"Map NERDTree and Tagbar to function toggle switches
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :TagbarToggle<CR>
+"Map NERDTree, Gundo, and Tagbar to function toggle switches
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :TagbarToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 
 " }}}
