@@ -33,7 +33,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'CharlesPatterson/vim-autoswap' 
 
 "Code Completion/Generation
-Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 
@@ -64,6 +63,9 @@ Plug 'Lokaltog/vim-easymotion'
 "Potentially, but not integrated yet 
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 " }}}
@@ -171,14 +173,15 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Look-and-Feel Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme solarized
 set guifont=Monaco:h18
 let macvim_skip_colorscheme=1
 set background=dark
-colorscheme solarized
 syntax on
 
 "Change menu color to something nicer looking
-:highlight Pmenu ctermbg=blue
+":highlight Pmenu ctermbg=blue
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 "Airline Settings
 let g:airline#extensions#tabline#enabled = 1
