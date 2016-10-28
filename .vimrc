@@ -64,7 +64,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'Raimondi/delimitMate'
+Plug 'ternjs/tern_for_vim'
 Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
@@ -180,12 +180,13 @@ set background=dark
 syntax on
 
 "Change menu color to something nicer looking
-":highlight Pmenu ctermbg=blue
-highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+"highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
+highlight Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
 
 "Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme                      = 'solarized'
+set noshowmode
 
 "NerdTree Settings
 let g:NERDTreeWinSize    = 60
