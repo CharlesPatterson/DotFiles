@@ -88,7 +88,7 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
-set paste
+"set paste
 set ignorecase smartcase
 set cursorline
 set t_ti= t_te=
@@ -232,14 +232,18 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
+"YouCompleteMe
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " }}}
 
 " Snippets Plugin Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger                       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger                  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger                 = "<S-Tab>"
+let g:UltiSnipsExpandTrigger                       = "<C-s>"
+let g:UltiSnipsJumpForwardTrigger                  = "<C-n>"
+let g:UltiSnipsJumpBackwardTrigger                 = "<C-p>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit                           = "vertical"
