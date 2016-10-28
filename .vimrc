@@ -31,7 +31,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'gioele/vim-autoswap'
 Plug 'CharlesPatterson/vim-autoswap' 
-Plug 'Lokaltog/vim-easymotion'
 
 "Code Completion/Generation
 Plug 'ervandew/supertab'
@@ -58,10 +57,13 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node'
 
-"Potential, but not integrated yet 
+"In-Use, but should be studied more
+Plug 'sjl/gundo.vim'
+Plug 'Lokaltog/vim-easymotion'
+
+"Potentially, but not integrated yet 
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
-Plug 'sjl/gundo.vim'
 
 call plug#end()
 " }}}
