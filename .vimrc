@@ -48,6 +48,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 
 "Miscellaneous
+Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-unimpaired'
 
 "Python-specific
@@ -61,7 +62,6 @@ Plug 'moll/vim-node'
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sjl/gundo.vim'
-Plug 'svermeulen/vim-easyclip'
 
 call plug#end()
 " }}}
@@ -268,5 +268,16 @@ map <S-Tab> <Over>(incsearch-prev)
 " Scroll-like feature while incremental searching
 map <C-j> <Over>(incsearch-scroll-f)
 map <C-k> <Over>(incsearch-scroll-b)
+
+" }}}
+
+" EasyClip Settings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyClipShareYanks = 1
+let g:EasyClipUsePasteToggleDefaults = 0
+let g:EasyClipEnableBlackHoleRedirect = 0
+
+nmap <C-P> <plug>EasyClipSwapPasteForward
+nmap <C-N> <plug>EasyClipSwapPasteBackwards
 
 " }}}
