@@ -152,10 +152,13 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <Leader>' i''<ESC>
-nnoremap <Leader>" i""<ESC>
-nnoremap <Leader>( i()<ESC>
-nnoremap <Leader>{ i{}<ESC>
+"EasyMotion Settings 
+nmap s <Plug>(easymotion-s)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0
 
 " Allow me to save to a file with sudo if needed
 cmap w!! w !sudo tee % >/dev/null
