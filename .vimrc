@@ -153,8 +153,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 "EasyMotion Settings 
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping  = 0 " Disable default mappings
+let g:EasyMotion_smartcase   = 1
 let g:EasyMotion_startofline = 0
 
 nmap s <Plug>(easymotion-overwin-f)
@@ -174,6 +174,12 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :TagbarToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
+
+"Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+"Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)"
 
 " }}}
 
