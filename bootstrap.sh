@@ -134,6 +134,11 @@ vim +PlugInstall +qall
 nvim +PlugInstall +qall
 mkdir -p ~/.vim/undodir/
 
+cd ~/.vim/plugged/YouCompleteMe
+./install.py
+cd ~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
+npm install --production
+
 # Enable emacs to start as a daemon by adding it to the launchagents
 # You can manually run this with:
 # sudo launchctl load -w /Library/LaunchAgents/gnu.emacs.daemon.plist
