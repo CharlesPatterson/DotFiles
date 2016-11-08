@@ -131,12 +131,26 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 # Install vim plugins
 vim +PlugInstall +qall
-nvim +PlugInstall +qall
 mkdir -p ~/.vim/undodir/
 
+# Install neovim plugins
+nvim +PlugInstall +qall
+mkdir -p ~/.config/nvim/undodir/
+cp init.vim ~/.config/nvim/
+
+# Python2 integration for neovim
+sudo pip2 install --upgrade neovim
+
+# YouCompleteMe Installation for VIM
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py
 cd ~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
+npm install --production
+
+# YouCompleteMe Installation for neovim
+cd ~/.config/nvim/plugged/YouCompleteMe
+./install.py
+cd ~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
 npm install --production
 
 # Enable emacs to start as a daemon by adding it to the launchagents
