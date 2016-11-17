@@ -48,6 +48,7 @@ brews=(
   coreutils
   findutils
   fasd
+  fzf
   #rsync
   trash
   tree
@@ -123,6 +124,12 @@ brew cask alfred link
 # Remove cached downloads
 brew cleanup
 
+# Lunchy (this lets you handle launchctl better)
+gem install lunchy
+
+# Install shell extensions for fzf
+/usr/local/opt/fzf/install
+
 # Install vim plugins
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -140,6 +147,9 @@ cp init.vim ~/.config/nvim/
 
 # Python2 integration for neovim
 sudo pip2 install --upgrade neovim
+
+# Python3 integration for neovim
+pip3 install --upgrade neovim
 
 # YouCompleteMe Installation for VIM
 cd ~/.vim/plugged/YouCompleteMe

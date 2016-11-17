@@ -65,8 +65,8 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'ternjs/tern_for_vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 call plug#end()
 " }}}
@@ -245,10 +245,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
-
-"YouCompleteMe
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 
 " }}}
 

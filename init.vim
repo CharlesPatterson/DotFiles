@@ -26,11 +26,13 @@ Plug 'vim-airline/vim-airline-themes'
 
 "Navigation
 Plug 'haya14busa/incsearch.vim'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'gioele/vim-autoswap'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'CharlesPatterson/vim-autoswap' 
 
 "Code Completion/Generation
@@ -52,21 +54,26 @@ Plug 'tpope/vim-unimpaired'
 
 "Python-specific
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 "Javascript-specific
 Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node'
+Plug 'mustache/vim-mustache-handlebars'
 
 "In-Use, but should be studied more
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 Plug 'Lokaltog/vim-easymotion'
 
 "Potentially, but not integrated yet 
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'ternjs/tern_for_vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 call plug#end()
 " }}}
@@ -118,6 +125,30 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " Autocmds {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Deoplete
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Default autoindent for various web languages
 augroup autoindent_group
@@ -174,7 +205,7 @@ cmap w!! w !sudo tee % >/dev/null
 "Map NERDTree, Gundo, and Tagbar to function toggle switches
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :TagbarToggle<CR>
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :MundoToggle<CR>
 
 "Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -233,22 +264,41 @@ au Syntax * RainbowParenthesesLoadBraces
 " Plugin Specific Configuration {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Ctrl-P Bindings
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
+"Deoplete configuration
+let g:deoplete#enable_at_startup = 1
 
-"Enable Ctrl-P (Fuzzy File-Finder)
-set runtimepath^=~/.vim/bundle/ctrlp/ctrlp.vim
+"Deoplete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
 
-" Sane Ignore For Ctrl-P
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
-  \ 'file': '\.exe$\|\.so$\|\.dat$'
-  \ }
+"fzf configuration
+nnoremap <silent> <leader><space> :Files<CR>
+"nnoremap <silent> <leader>a :Buffers<CR>
+"nnoremap <silent> <leader>A :Windows<CR>
+"nnoremap <silent> <leader>; :BLines<CR>
+"nnoremap <silent> <leader>o :BTags<CR>
+"nnoremap <silent> <leader>O :Tags<CR>
+"nnoremap <silent> <leader>? :History<CR>
+"nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
+"nnoremap <silent> <leader>. :AgIn 
 
-"YouCompleteMe
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+"nnoremap <silent> <leader>gl :Commits<CR>
+"nnoremap <silent> <leader>ga :BCommits<CR>
+"nnoremap <silent> <leader>ft :Filetypes<CR>
+
+"imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+"imap <C-x><C-l> <plug>(fzf-complete-line)
+
+" Mapping selecting mappings
+"nmap <leader><tab> <plug>(fzf-maps-n)
+"xmap <leader><tab> <plug>(fzf-maps-x)
+"omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+"imap <c-x><c-k> <plug>(fzf-complete-word)
+"imap <c-x><c-f> <plug>(fzf-complete-path)
+"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+"imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " }}}
 
