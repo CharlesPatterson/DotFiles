@@ -36,6 +36,7 @@ brew link libyaml
 brews=(
   # Languages
   python
+  python3
   node
   leiningen
   ghc 
@@ -68,8 +69,11 @@ brews=(
   boot2docker
 )
 
-echo "Installing brews..."
-brew install ${brews[@]}
+echo "Installing/Upgrading brews..."
+#brew install ${brews[@]}
+for individual_brew in ${brews[@]}; do
+    brew ls --versions ${individual_brew} && brew upgrade ${individual_brew} || brew install ${individual_brew}
+done
 
 if [ -z `which zsh` ];
 then
@@ -144,12 +148,15 @@ mkdir -p ~/.vim/undodir/
 nvim +PlugInstall +qall
 mkdir -p ~/.config/nvim/undodir/
 cp init.vim ~/.config/nvim/
+nvim +PlugInstall +qall
 
 # Python2 integration for neovim
-sudo pip2 install --upgrade neovim
+pip2 install --upgrade neovim
 
 # Python3 integration for neovim
 pip3 install --upgrade neovim
+
+nvim +UpdateRemotePlugins +qall
 
 # YouCompleteMe Installation for VIM
 cd ~/.vim/plugged/YouCompleteMe
