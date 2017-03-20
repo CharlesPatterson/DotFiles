@@ -199,6 +199,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 cmap w!! w !sudo tee % >/dev/null
 
 " Edit .vimrc in a vertical split
+:nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
