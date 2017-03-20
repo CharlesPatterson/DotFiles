@@ -172,6 +172,9 @@ augroup END
 " Key Mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Alternative to ESC
+inoremap jk <esc>
+
 "Map <C-L> to turning off search highlighting
 noremap <silent> <C-L> :nohl <CR>
 
