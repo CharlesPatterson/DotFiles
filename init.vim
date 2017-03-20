@@ -70,8 +70,8 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'benekastah/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
@@ -81,45 +81,42 @@ call plug#end()
 " Core Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set number
-set backspace=2
-set nowrap
-set nocompatible
-set hidden
-set history=10000
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set laststatus=2
-set showmatch
-set incsearch
-set hlsearch
-"set paste
-set ignorecase smartcase
-set cursorline
-set t_ti= t_te=
-set scrolloff=3
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set showcmd
-set wildmenu
-set wildmode=list:longest,full
-set completeopt+=longest
-set autoread
-set timeout timeoutlen=1000 ttimeoutlen=100
-filetype plugin indent on
-
-"Map Leader key to ' ' 
-let mapleader = ","
-
-"Add persistent undo-file
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+set nocompatible                                    " Ignored by nvim
+set number                                          " Show line-numbers
+set backspace=2                                     " Make backspace work like most other apps
+set nowrap                                          " No line-wrapping
+set hidden                                          " Hide buffers instead of closing them, when you open a new buffer
+set history=10000                                   " Remember N commands
+set expandtab                                       " Turn tab into spaces
+set tabstop=4                                       " Number of visual spaces per TAB
+set shiftwidth=4                                    " >> == N spaces
+set softtabstop=4                                   " Number of spaces per TAB when editing
+set autoindent                                      " Turns on autoindent
+set laststatus=2                                    " Show status line always
+set showmatch                                       " Show matching '(' and '{'
+set incsearch                                       " Enables incremental search
+set hlsearch                                        " Highlight all search pattern matches
+" set paste                                         " Turn off auto-indent for pasting
+set ignorecase smartcase                            " Only do a case-sensitive search if there's a capital letter in your search pattern
+set cursorline                                      " Highlight your cursor's line
+set t_ti= t_te=                                     " ?
+set scrolloff=3                                     " Always leave 3 lines above your cursor after doing a z-enter
+set backup                                          " Turns on backups of files
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp " Backup files go here
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp " Swap files go here
+set showcmd                                         " Show the command you're typing
+set wildmenu                                        " Visual autocomplete for command menu
+set wildmode=list:longest,full                      " ?
+set lazyredraw                                      " Redraw only when necessary
+set completeopt+=longest                            " Insert longest common text of all matches of auto-complete
+set autoread                                        " Re-read file if it was changed outside of vim
+set timeout timeoutlen=1000 ttimeoutlen=100         " Timeout length for leader key
+filetype plugin indent on                           " ?
+let mapleader = "\<space>"                           " Use space for leader key
+set undofile                                        " Save your undo history upon closing VIM
+set undodir=~/.vim/undodir                          " Store the undo files in this directory
+set undolevels=1000                                 " Maximum number of changes that can be undone
+set undoreload=10000                                " Maximum number lines to save for undo on a buffer reload
 
 " }}}
 
@@ -265,7 +262,7 @@ au Syntax * RainbowParenthesesLoadBraces
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Deoplete configuration
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 "Deoplete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
