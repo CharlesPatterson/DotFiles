@@ -93,9 +93,19 @@ bindkey '^S' history-incremental-pattern-search-forward
 export EDITOR='vim'
 
 export TERM='xterm-256color'
-export CLASSPATH="/usr/local/Cellar/antlr/4.5.1_1/antlr-4.5.1-complete.jar:."
+#export CLASSPATH="/usr/local/Cellar/antlr/4.5.1_1/antlr-4.5.1-complete.jar:."
 
 # Transpose correctly
 autoload -Uz transpose-words-match
 zstyle ':zle:transpose-words' word-style shell
 zle -N transpose-words transpose-words-match
+
+# Use rg for fzf
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval $(/usr/libexec/path_helper -s)
+
+#export WORKON_HOME=$HOME/.virtualenvs                 # optional
+#export PROJECT_HOME=$HOME/source/python-projects      # optional
+#source /usr/local/bin/virtualenvwrapper.sh

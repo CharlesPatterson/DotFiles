@@ -50,6 +50,7 @@ brews=(
   findutils
   fasd
   fzf
+  rg
   #rsync
   trash
   tree
@@ -179,3 +180,9 @@ sudo cp gnu.emacs.daemon.plist /Library/LaunchAgents/
 # You can manually run this with:
 # sudo launchctl load -w /Library/LaunchAgents/com.docker.machine.default.plist
 sudo cp com.docker.machine.default.plist /Library/LaunchAgents/
+
+# Disable the spacing around iterm when you try to do a full-screen with spectacle
+defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
+
+# Disable the console 'Last Login' message
+touch ~/.hushlogin
