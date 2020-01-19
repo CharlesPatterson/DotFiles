@@ -49,7 +49,7 @@ plugins=(git brew mvn dirpersist dircycle last-working-dir colored-man safe-past
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/cpatterson/bin/"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/charlespatterson/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -80,20 +80,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.aliases
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 # Wildcard history search
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
-
-# Allow use of k
-#source ~/.oh-my-zsh/plugins/k/k.sh
 
 # Specify preferred editor
 export EDITOR='vim'
 
 export TERM='xterm-256color'
-#export CLASSPATH="/usr/local/Cellar/antlr/4.5.1_1/antlr-4.5.1-complete.jar:."
 
 # Transpose correctly
 autoload -Uz transpose-words-match
@@ -106,6 +100,3 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval $(/usr/libexec/path_helper -s)
 
-#export WORKON_HOME=$HOME/.virtualenvs                 # optional
-#export PROJECT_HOME=$HOME/source/python-projects      # optional
-#source /usr/local/bin/virtualenvwrapper.sh
