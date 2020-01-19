@@ -1,8 +1,0 @@
-bind f eval "hardstatus ignore"
-bind F eval "hardstatus alwayslastline"
-
-shelltitle ''
-vbell off
-hardstatus on
-hardstatus alwayslastline
-hardstatus string '%{= kw}%-Lw%{= kr}%50>%n%f %t%{= kw}%+Lw%< %{=kG}%-= %M %d, %Y %c:%s%{-}'
