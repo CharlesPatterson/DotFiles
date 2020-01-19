@@ -10,8 +10,8 @@
 call plug#begin()
 
 "Look-and-feel
-Plug 'joshdick/onedark.vim'                                     "One Dark theme
-"Plug 'altercation/vim-colors-solarized'                         "Solarized theme
+"Plug 'joshdick/onedark.vim'                                     "One Dark theme
+Plug 'altercation/vim-colors-solarized'                         "Solarized theme
 Plug 'airblade/vim-gitgutter'                                   "]c [c navigate chunks, show git symbols in the left-hand gutter
 Plug 'kien/rainbow_parentheses.vim'                             "Color parentheses different colors (especially for LISP)
 Plug 'vim-airline/vim-airline'                                  "Use airline gutter at bottom
@@ -29,15 +29,15 @@ Plug 'mhinz/vim-grepper'                                        "Do rg across th
 Plug 'tpope/vim-unimpaired'                                     "[b ]b move between buffers
 Plug 'vim-scripts/matchit.zip'                                  "% will match HTML tags better
 "Plug 'gioele/vim-autoswap'                                     "Deal with swapfiles seamlessly
-Plug 'CharlesPatterson/vim-autoswap'                            "TODO: My fork of above to allow for use in iTerm2
+"Plug 'CharlesPatterson/vim-autoswap'                            "TODO: My fork of above to allow for use in iTerm2
 Plug 'Lokaltog/vim-easymotion'                                  "<Leader>s-KEY searches for the key
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }  "Show git indicators in NERDTree
 
 "Code Completion/Generation
 Plug 'ervandew/supertab'                                        "Use tab for all auto-completion
-Plug 'honza/vim-snippets'                                       "Bring in common snippets for various languages
-Plug 'SirVer/ultisnips'                                         "Enable snippets available with tab-completion
-Plug 'Valloric/YouCompleteMe'                                   "Code completion engine (shows potential matches, choose with Tab)
+"Plug 'honza/vim-snippets'                                       "Bring in common snippets for various languages
+"Plug 'SirVer/ultisnips'                                         "Enable snippets available with tab-completion
+"Plug 'Valloric/YouCompleteMe'                                   "Code completion engine (shows potential matches, choose with Tab)
 
 "Code Editing
 Plug 'godlygeek/tabular'                                        ":Tab /= Align text by equals sign
@@ -52,16 +52,16 @@ Plug 'tpope/vim-jdaddy'                                         "TODO: JSON file
 Plug 'tpope/vim-repeat'                                         "Repeat now works for plugin commands
 Plug 'tpope/vim-speeddating'                                    "<C-A> and <C-X> increment/decrement dates
 Plug 'tpope/vim-surround'                                       "cs-delimiter/ci-delimiter allows you to change the surrounding elements or their interior
-Plug 'w0rp/ale'                                                 "async linting
+"Plug 'w0rp/ale'                                                 "async linting
 
 "Javascript-specific
-Plug 'moll/vim-node'                                            "gf on require statements in node files goes to actual file
-Plug 'mxw/vim-jsx'                                              "Handle JSX formatting / code-highlighting properly
+"Plug 'moll/vim-node'                                            "gf on require statements in node files goes to actual file
+"Plug 'mxw/vim-jsx'                                              "Handle JSX formatting / code-highlighting properly
 
 "In-Use, but should be studied more
-Plug 'sjl/gundo.vim'                                            "F5 gives you a graphical view of your undos
-Plug 'tmux-plugins/vim-tmux-focus-events'                       "TODO: Supposed to handle automatic reload of files
-Plug 'alvan/vim-closetag'                                       "Enable autoclosing of html/jsx tags
+"Plug 'sjl/gundo.vim'                                            "F5 gives you a graphical view of your undos
+"Plug 'tmux-plugins/vim-tmux-focus-events'                       "TODO: Supposed to handle automatic reload of files
+"Plug 'alvan/vim-closetag'                                       "Enable autoclosing of html/jsx tags
 
 call plug#end()
 " }}}
@@ -187,8 +187,8 @@ nmap ga <Plug>(EasyAlign)"
 " Look-and-Feel Settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:onedark_termcolors = 16
-"colorscheme solarized
-colorscheme onedark
+colorscheme solarized
+"colorscheme onedark
 set guifont=Monaco:h18
 "let macvim_skip_colorscheme=1
 set background=dark
