@@ -1,28 +1,15 @@
 # Common Functions
 alias tree='tree -I node_modules'
-alias l='ls'
-alias sl='ls'
+alias l='lsd'
+alias ls='lsd'
+alias sl='lsd'
 alias dc='cd'
-alias cdrive="cd ~/Documents/Parallels/Windows\ 7.pvm/Windows\ Disks/C"
-alias org='cd ~/Dropbox/Organization'
-
-# Docker
-alias drmi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
-
-# Emacs
-alias ec='emacsclient -c'
 
 # Source SSH aliases
 if [ -f .ssh_aliases ]; then
   . .ssh_aliases
 fi
 
-# fasd Aliases
-alias v='f -e vim'
-
 # tmuxinator profile
 alias personal='tmuxinator start personal'
 alias spersonal='tmuxinator stop personal'
-
-# Git aliases
-alias gst='git status --short --branch'
