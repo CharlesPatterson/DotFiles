@@ -1,5 +1,6 @@
 # Common Functions
 alias tree='tree -I node_modules'
+alias s='lsd'
 alias l='lsd'
 alias ls='lsd'
 alias sl='lsd'
