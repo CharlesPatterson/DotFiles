@@ -4,7 +4,5 @@ DotFiles
 Includes:
 * Aliases
 * Shell Settings
-* Screen & tmux Settings
-* Emacs Plugins and Configuration
+* Tmux Settings
 * VIM Plugins and Configuration
-* Git Configuration
