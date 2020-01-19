@@ -45,7 +45,7 @@ ZSH_THEME="candy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew mvn dirpersist dircycle last-working-dir colored-man safe-paste)
+plugins=(git brew dirpersist dircycle last-working-dir safe-paste)
 
 # User configuration
 
