@@ -1,188 +1,154 @@
 #!/bin/bash
-# TODO: SSH Keys
-# TODO: Sync browser passwords/history
-# TODO: Sync mail configuration/passwords
-# TODO: Configure iTerm (+Color-scheme)
-# TODO: Configure vim plugins
-# TODO: Configure emacs plugins
-# TODO: Pull down dotfiles
-# TODO: Install Cisco VPN
-# TODO: Download specific dash docs
-# TODO: Create symlinks for configuration files
-# TODO: Add yasnippets from work
+SCREENSHOTS_DIRECTORY=~/Documents/Screenshots
 
-# Install Apple Updates
-softwareupdate --install --all
-
-# Install Xcode
-if [ -z `which gcc` ];
+# Install homebrew
+if [ -z $(which brew) ];
 then
-    xcode-select --install
-else
-    echo "Xcode is already installed."
+	echo "Installing brew..."
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# Install Brew
-if [ -z `which brew` ];
+# Disable the console 'Last Login' message
+if [ ! -f ~/.hushlogin ];
 then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-    echo "Brew is already installed."
+	echo "Disabling console 'Last Login' message"
+	touch ~/.hushlogin
 fi
 
-brew update
-brew link libyaml
+if [ ! -f ~/.showhiddenfiles ]; 
+then
+	echo "Enabling show all hidden files"
+	defaults write com.apple.Finder AppleShowAllFiles true
+	touch ~/.showhiddenfiles
+fi
+
+# Change default screenshot save location
+if [ ! -d $SCREENSHOTS_DIRECTORY ]; then
+	echo "Changing default screenshots directory to: $SCREENSHOTS_DIRECTORY"
+	mkdir -p $SCREENSHOTS_DIRECTORY
+	defaults write com.apple.screencapture location $SCREENSHOTS_DIRECTORY
+fi 
 
 brews=(
-  # Languages
-  python
-  python3
-  node
-  leiningen
-  ghc 
-  cabal-install
-  groovy
-  erlang
-  # Misc Tools
-  ack
-  antlr
-  coreutils
-  findutils
-  fasd
-  fzf
-  rg
-  #rsync
-  trash
-  tree
-  wget
-  zsh
-  # Source Control
-  git
-  svn
-  # Editors
-  emacs
-  vim
-  neovim
-  # External Tools
-  awscli
-  awsebcli
-  docker
-  boot2docker
+	lsd
+	rg
+	tree
+	wget
+	git
+    nvm
+	tmux
+	tmuxinator
+)
+
+casks=(
+	1Password
+	alacritty
+	clipy
+	dropbox
+	fantastical
+	firefox
+	flux
+    little-snitch
+	omnifocus
+	slack
+	spectacle
+	spotify
+    steam
+	visual-studio-code
 )
 
 echo "Installing/Upgrading brews..."
-#brew install ${brews[@]}
-for individual_brew in ${brews[@]}; do
-    brew ls --versions ${individual_brew} && brew upgrade ${individual_brew} || brew install ${individual_brew}
+for ibrew in ${brews[@]}; do
+    brew ls --versions ${ibrew} && brew upgrade ${ibrew} || brew install ${ibrew}
 done
 
-if [ -z `which zsh` ];
+echo "Installing/Upgrading casks..."
+for icask in ${casks[@]}; do
+    brew cask ls --versions ${cask} && brew cask upgrade ${cask} || brew cask install ${cask}
+done
+
+if [ ! -d ~/Source ];
 then
-    echo "Changing default shell to zsh."
-    chsh -s /bin/zsh
+	echo "Creating a source directory"
+	mkdir -p ~/Source/
 fi
 
-brew install caskroom/cask/brew-cask
+if [ ! -d ~/.config/alacritty ];
+then
+	echo "Creating alacritty config directory"
+	mkdir -p ~/.config/alacritty
+fi
 
-apps=(
-  alfred
-  clipmenu
-  menubar-countdown
-  spectacle
-  flux
-  iterm2
-  dropbox
-  google-chrome
-  firefox
-  slack
-  skype
-  utorrent
-  dash
-  eclipse-ide
-  mou
-  qlcolorcode
-  qlmarkdown
-  qlstephen
-  quicklook-json
-  chromecast
-  flash
-  vlc
-  spotify
-  chicken
-  virtualbox
-  vagrant
-  arq
-  nvalt
-  dockertoolbox
-  visualvm
-  sublime-text
-)
+if [ ! -d ~/.nvm ];
+then
+    echo "Creating .nvm directory"
+    mkdir ~/.nvm
+fi
 
-# Install apps to /Applications
-# Default is: /Users/$user/Applications
-echo "Installing apps."
-brew cask install --appdir="/Applications" ${apps[@]}
-
-# Link apps with Alfred
-brew cask alfred link
-
-# Remove cached downloads
-brew cleanup
-
-# Lunchy (this lets you handle launchctl better)
-gem install lunchy
-
-# Install shell extensions for fzf
-/usr/local/opt/fzf/install
-
-# Install vim plugins
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+if [ ! -d ~/.vim/autoload/plug.vim ];
+then
+    echo "Installing VIM plugin installer"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Install vim plugins
-vim +PlugInstall +qall
-mkdir -p ~/.vim/undodir/
+    echo "Installing VIM plugins"
+    # Install vim plugins
+    vim +PlugInstall +qall
 
-# Install neovim plugins
-nvim +PlugInstall +qall
-mkdir -p ~/.config/nvim/undodir/
-cp init.vim ~/.config/nvim/
-nvim +PlugInstall +qall
+    mkdir -p ~/.vim/undodir/
+fi
 
-# Python2 integration for neovim
-pip2 install --upgrade neovim
-
-# Python3 integration for neovim
-pip3 install --upgrade neovim
-
-nvim +UpdateRemotePlugins +qall
-
-# YouCompleteMe Installation for VIM
-cd ~/.vim/plugged/YouCompleteMe
-./install.py
-cd ~/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
-npm install --production
-
-# YouCompleteMe Installation for neovim
-cd ~/.config/nvim/plugged/YouCompleteMe
-./install.py
-cd ~/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
-npm install --production
-
-# Enable emacs to start as a daemon by adding it to the launchagents
-# You can manually run this with:
-# sudo launchctl load -w /Library/LaunchAgents/gnu.emacs.daemon.plist
-sudo cp gnu.emacs.daemon.plist /Library/LaunchAgents/
-
-# Enable docker to start as a daemon by adding it to the launchagents
-# You can manually run this with:
-# sudo launchctl load -w /Library/LaunchAgents/com.docker.machine.default.plist
-sudo cp com.docker.machine.default.plist /Library/LaunchAgents/
-
-# Disable the spacing around iterm when you try to do a full-screen with spectacle
-defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
-
-# Disable the console 'Last Login' message
-touch ~/.hushlogin
+# Manual Steps
+## Mac System
+### General Preferences
+#### Disable Recent Items
+### Finder
+#### Disable colored tags
+#### Disable Recents
+#### Enable home screen in sidebar
+#### Enable root drive in sidebar 
+#### Enable showing filename extensions
+### MenuBar
+#### Turn on hiding
+### Enable 
+## 1Password
+### Open and login for first time using phone QR code
+## Alacritty
+### Change to Solarized Dark theme
+## Clipy
+### Open and enable on system startup
+### Give it accessibility permissions
+## Slack
+### Login to slacks
+## Spectacle
+### Open and enable on system startup
+### Give it accessibility permissions
+## Spotify
+### Sign in to spotify
+## Flux
+### Open and enable on system startup
+## Firefox
+### Install dark reader extension
+### Install vimium FF extension
+### Install 1Password extension
+### Install ublock origin extension
+### Install HTTPS Everywhere extension
+### Install Simple Tab Groups extension
+### Change Firefox to default browser
+### Change FF default search engine to DuckDuckGo
+### Enable Restore previous session
+### Disable all Home Content except Web Search
+### Disable Ask to save logins and passwords for websites
+### Disable Firefox Data Collection and Use
+## Mail
+### Setup gmail account
+## Github
+### Generate new SSH key and add to personal github
+## CLI
+### Copy .aliases from dotfiles
+### Copy .zshrc from dotfiles
+### Copy .tmux from dotfiles
+### Copy .vimrc from dotfiles
+## VS Code
+### Install vim extension
+### Set VS Code theme to Solarized Dark
