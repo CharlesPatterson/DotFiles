@@ -4,57 +4,59 @@ SCREENSHOTS_DIRECTORY=~/Documents/Screenshots
 # Install homebrew
 if [ -z $(which brew) ];
 then
-	echo "Installing brew..."
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Installing brew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Disable the console 'Last Login' message
 if [ ! -f ~/.hushlogin ];
 then
-	echo "Disabling console 'Last Login' message"
-	touch ~/.hushlogin
+    echo "Disabling console 'Last Login' message"
+    touch ~/.hushlogin
 fi
 
 if [ ! -f ~/.showhiddenfiles ]; 
 then
-	echo "Enabling show all hidden files"
-	defaults write com.apple.Finder AppleShowAllFiles true
-	touch ~/.showhiddenfiles
+    echo "Enabling show all hidden files"
+    defaults write com.apple.Finder AppleShowAllFiles true
+    touch ~/.showhiddenfiles
 fi
 
 # Change default screenshot save location
 if [ ! -d $SCREENSHOTS_DIRECTORY ]; then
-	echo "Changing default screenshots directory to: $SCREENSHOTS_DIRECTORY"
-	mkdir -p $SCREENSHOTS_DIRECTORY
-	defaults write com.apple.screencapture location $SCREENSHOTS_DIRECTORY
+    echo "Changing default screenshots directory to: $SCREENSHOTS_DIRECTORY"
+    mkdir -p $SCREENSHOTS_DIRECTORY
+    defaults write com.apple.screencapture location $SCREENSHOTS_DIRECTORY
 fi 
 
 brews=(
-	lsd
-	rg
-	tree
-	wget
-	git
+    lsd
+    rg
+    tree
+    wget
+    git
     nvm
-	tmux
-	tmuxinator
+    python3
+    tmux
+    tmuxinator
 )
 
 casks=(
-	1Password
-	alacritty
-	clipy
-	dropbox
-	fantastical
-	firefox
-	flux
+    1Password
+    alacritty
+    clipy
+    datagrip
+    dropbox
+    fantastical
+    firefox
+    flux
     little-snitch
-	omnifocus
-	slack
-	spectacle
-	spotify
+    omnifocus
+    slack
+    spectacle
+    spotify
     steam
-	visual-studio-code
+    visual-studio-code
 )
 
 echo "Installing/Upgrading brews..."
@@ -69,20 +71,22 @@ done
 
 if [ ! -d ~/Source ];
 then
-	echo "Creating a source directory"
-	mkdir -p ~/Source/
+    echo "Creating a source directory"
+    mkdir -p ~/Source/
 fi
 
 if [ ! -d ~/.config/alacritty ];
 then
-	echo "Creating alacritty config directory"
-	mkdir -p ~/.config/alacritty
+    echo "Creating alacritty config directory"
+    mkdir -p ~/.config/alacritty
 fi
 
 if [ ! -d ~/.nvm ];
 then
     echo "Creating .nvm directory"
     mkdir ~/.nvm
+    echo "Installing latest node lts"
+    nvm install --lts
 fi
 
 if [ ! -d ~/.vim/autoload/plug.vim ];
@@ -152,3 +156,5 @@ fi
 ## VS Code
 ### Install vim extension
 ### Set VS Code theme to Solarized Dark
+## Docker
+### Install Docker for Mac Desktop
